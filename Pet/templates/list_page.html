@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+
+{% block title %}List{% endblock title %}
+
+{% block content %}
+
+<br>
+<br>
+<div class="container mt-5">
+<div class="row">
+{% for pet in pets %}
+ <div class="col-xl-4 col-md-6 col-sm-12 d-flex align-items-stretch">
+  	<div class="card h-80 border-secondary mb-2">
+		    <img class="card-img-top" src="{{pet.Image.url}}" alt="Card image cap">
+		    <div class="card-body text-center">
+		      <h5 class="card-title text-body">{{pet.name}}</h5>
+		      <p class="card-text text-body text-center">{{pet.age}}</p>
+		      <p class="card-text text-body text-center">{{pet.price}}</p>
+		      <a href="{% url 'detail-view' pet.id %}"><button type="button" class="btn btn-primary btn-sm">Details</button></a>
+		    </div>
+	    </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock content %}
